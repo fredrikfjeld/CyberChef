@@ -63,6 +63,7 @@ jobs:
           # Get the installed Chrome version and install matching ChromeDriver
           CHROME_VERSION=$(google-chrome --version | grep -oP '\d+(?=\.\d+\.\d+\.\d+)' | head -1)
           npx @puppeteer/browsers install chrome@$CHROME_VERSION
+          npx @puppeteer/browsers install chromedriver@$CHROME_VERSION
           echo chromedir=$(dirname $(find `pwd`/chrome/* -name chrome -print -quit)) >> $GITHUB_OUTPUT
       
       - name: UI Tests
